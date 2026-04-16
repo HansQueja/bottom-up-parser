@@ -27,3 +27,5 @@ The following are test cases that we can use to check how the parser works.
 6. an algorithm processed the data
 ```
 
+Example case:
+<img width="1364" height="916" alt="image" src="https://github.com/user-attachments/assets/d0b32de4-b4be-4f0f-b677-6503c698ef21" />
