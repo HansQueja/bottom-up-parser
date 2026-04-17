@@ -35,19 +35,18 @@ def shift_reduce(tokens):
     while reduced:
         reduced = False
         
-        # Prioritize longer matches (3, 2, then 1) to avoid the greedy trap
-        for length in [3, 2, 1]:
-            # Slide a window across the buffer from left to right
-            for i in range(len(buffer) - length + 1):
-                current_window = buffer[i:i+length]
+        for rule_tuple, parent_phrase in mapper.items():
+            rule_length = len(rule_tuple)
+            
+            # Slide the window looking ONLY for this specific rule
+            for i in range(len(buffer) - rule_length + 1):
+                current_window = tuple(buffer[i:i+rule_length])
                 
-                result = category_to_mappers(current_window)
-                
-                if result != "UNKNOWN":
-                    print(f"\tMatch found:\t{current_window} -> {result}")
+                if current_window == rule_tuple:
+                    print(f"\tMatch found:\t{list(current_window)} -> {parent_phrase}")
                     
                     # Splice the new result into the buffer
-                    buffer = buffer[:i] + [result] + buffer[i+length:]
+                    buffer = buffer[:i] + [parent_phrase] + buffer[i+rule_length:]
                     print(f"\tBuffer Update:\t{buffer}\n")
                     
                     reduced = True
