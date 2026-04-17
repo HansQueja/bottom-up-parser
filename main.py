@@ -6,6 +6,8 @@ Test cases are:
 2. the user should clean the printer
 3. users clean printers
 4. the printer stopped
+5. the robot should navigate
+6. an algorithm processed the data
 """
 def main():
     print(f"\nRepresentation and Processing - Coding Application\n")
