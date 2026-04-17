@@ -33,19 +33,19 @@ dictionary = {
 
 mapper = {
     # Foundational Noun Phrase Rules
-    ("DET", "N"): "NP",
     ("DET", "ADJ", "N"): "NP",
+    ("DET", "N"): "NP",
     ("N",): "NP",
 
     # Prepositional Phrase Rule
     ("P", "NP"): "PP",
 
     # Verb Phrase Rules
-    ("V",): "VP",
-    ("V", "NP"): "VP",
     ("V", "NP", "PP"): "VP",
+    ("V", "NP"): "VP",
+    ("V",): "VP",
 
     # Sentence Rules
-    ("NP", "VP"): "S",
-    ("NP", "AUX", "VP"): "S"
+    ("NP", "AUX", "VP"): "S",
+    ("NP", "VP"): "S"
 }
